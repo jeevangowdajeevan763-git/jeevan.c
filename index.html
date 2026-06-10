@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NexusTech - A modern technology blog exploring Artificial Intelligence, Web Development, Programming, and emerging cyber paradigms.">
+    <meta name="keywords" content="AI, Programming, Web Dev, Technology, Emerging Tech, Cyber Security">
+    <title>NexusTech | Future of AI, Web Dev & Quantum Computing</title>
+    <!-- Google Fonts: Outfit (headings) and Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Reading Progress Bar -->
+    <div id="scrollProgress" class="scroll-progress-bar"></div>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" id="navLogo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-microchip"></i>
+                </div>
+                <span>Nexus<span>Tech</span></span>
+            </a>
+
+            <!-- Navigation Links (Desktop) -->
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-filter="all">Home</a></li>
+                    <li><a href="#" class="nav-link" data-filter="all">Articles</a></li>
+                    <li><a href="#" class="nav-link" data-filter="AI">AI</a></li>
+                    <li><a href="#" class="nav-link" data-filter="Programming">Coding</a></li>
+                    <li><a href="#" class="nav-link" data-filter="Web Dev">Web Dev</a></li>
+                </ul>
+            </nav>
+
+            <!-- Actions Header -->
+            <div class="nav-actions">
+                <!-- Theme Toggle Button -->
+                <button id="themeToggle" class="theme-btn" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon moon-icon"></i>
+                    <i class="fa-solid fa-sun sun-icon"></i>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Open Navigation Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <ul class="mobile-menu-links">
+            <li><a href="#" class="mobile-nav-link active" data-filter="all">Home</a></li>
+            <li><a href="#" class="mobile-nav-link" data-filter="all">Articles</a></li>
+            <li><a href="#" class="mobile-nav-link" data-filter="AI">Artificial Intelligence</a></li>
+            <li><a href="#" class="mobile-nav-link" data-filter="Programming">Programming</a></li>
+            <li><a href="#" class="mobile-nav-link" data-filter="Web Dev">Web Development</a></li>
+            <li><a href="#" class="mobile-nav-link" data-filter="Emerging Tech">Emerging Tech</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="heroSection">
+        <div class="hero-image-wrapper">
+            <img src="assets/hero_ai.png" alt="Artificial Intelligence Neural Network" class="hero-img">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <span class="category-badge hero-badge">Featured / AI</span>
+            <h1 class="hero-title">The Era of Cognitive Autonomy: How AI Agents are Redefining Software Engineering</h1>
+            <p class="hero-desc">AI models are transitioning from simple copilot autocompletions to fully autonomous software engineering agents. Explore the architectural shifts, safety sandboxes, and skills you need to build code in 2026.</p>
+            <div class="hero-meta">
+                <div class="meta-author">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                    <span>Dr. Evelyn Carter</span>
+                </div>
+                <div class="meta-date">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <span>June 10, 2026</span>
+                </div>
+                <div class="meta-read-time">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>6 min read</span>
+                </div>
+            </div>
+            <button class="btn btn-primary hero-btn" id="heroReadBtn" data-post-id="1">
+                <span>Read Full Article</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Page Body Grid Wrapper -->
+    <div class="container main-layout">
+        <!-- Main Blog Content Area -->
+        <main class="blog-main">
+            <!-- Filter Title Banner -->
+            <div class="filter-header" id="filterHeader" style="display: none;">
+                <h2 class="filter-title">Category: <span id="filterCategoryName">AI</span></h2>
+                <button class="clear-filter-btn" id="clearFilterBtn">
+                    Clear Filter <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Blog Grid (Holds 6 dynamically generated cards) -->
+            <div class="blog-grid" id="blogGrid">
+                <!-- Dynamic cards populated by script.js -->
+            </div>
+
+            <!-- Pagination Layout -->
+            <div class="pagination-container" id="pagination">
+                <!-- Dynamically generated navigation controls -->
+            </div>
+        </main>
+
+        <!-- Sidebar Widgets -->
+        <aside class="blog-sidebar">
+            <!-- Search Box Widget -->
+            <div class="widget search-widget">
+                <h3 class="widget-title">Search Articles</h3>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search topics, keywords, authors...">
+                    <button id="searchBtn" aria-label="Search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Categories Widget -->
+            <div class="widget categories-widget">
+                <h3 class="widget-title">Categories</h3>
+                <ul class="categories-list" id="sidebarCategories">
+                    <!-- Dynamic categories counter loaded by JS -->
+                </ul>
+            </div>
+
+            <!-- Recent Posts Widget -->
+            <div class="widget recent-posts-widget">
+                <h3 class="widget-title">Popular Articles</h3>
+                <ul class="recent-posts-list" id="sidebarRecentPosts">
+                    <!-- Dynamic popular posts loaded by JS -->
+                </ul>
+            </div>
+
+            <!-- Newsletter Signup Form Widget -->
+            <div class="widget newsletter-widget">
+                <div class="newsletter-icon">
+                    <i class="fa-regular fa-paper-plane"></i>
+                </div>
+                <h3 class="widget-title">Stay in the Loop</h3>
+                <p class="newsletter-desc">Subscribe to get the latest tech insights, coding guides, and AI tutorials sent straight to your inbox.</p>
+                <form id="newsletterForm" class="newsletter-form">
+                    <div class="input-group">
+                        <i class="fa-regular fa-envelope input-icon"></i>
+                        <input type="email" id="newsletterEmail" placeholder="Enter your email address" required>
+                    </div>
+                    <button type="submit" class="btn btn-block btn-gradient">
+                        <span>Subscribe Now</span>
+                        <i class="fa-solid fa-bolt"></i>
+                    </button>
+                </form>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer Area -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <!-- Brand Column -->
+            <div class="footer-col brand-col">
+                <a href="#" class="logo footer-logo">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <span>Nexus<span>Tech</span></span>
+                </a>
+                <p class="footer-desc">Demystifying artificial intelligence, developer tooling, web architecture, and modern hardware paradigms for tech professionals worldwide.</p>
+                <div class="social-links">
+                    <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-col links-col">
+                <h4 class="footer-title">Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="#" data-filter="all"><i class="fa-solid fa-chevron-right"></i> All Articles</a></li>
+                    <li><a href="#" data-filter="AI"><i class="fa-solid fa-chevron-right"></i> Artificial Intelligence</a></li>
+                    <li><a href="#" data-filter="Programming"><i class="fa-solid fa-chevron-right"></i> Code & Algorithms</a></li>
+                    <li><a href="#" data-filter="Web Dev"><i class="fa-solid fa-chevron-right"></i> Frontend & Backend</a></li>
+                    <li><a href="#" data-filter="Emerging Tech"><i class="fa-solid fa-chevron-right"></i> Quantum & Cyber</a></li>
+                </ul>
+            </div>
+
+            <!-- Popular Tags -->
+            <div class="footer-col tags-col">
+                <h4 class="footer-title">Tech Tags</h4>
+                <div class="tag-cloud">
+                    <span class="tag-pill" data-tag="AI">Generative AI</span>
+                    <span class="tag-pill" data-tag="React">React</span>
+                    <span class="tag-pill" data-tag="TypeScript">TypeScript</span>
+                    <span class="tag-pill" data-tag="Quantum">Quantum</span>
+                    <span class="tag-pill" data-tag="NextJS">Next.js</span>
+                    <span class="tag-pill" data-tag="Rust">Rust</span>
+                    <span class="tag-pill" data-tag="Cybersecurity">Security</span>
+                    <span class="tag-pill" data-tag="WebDev">CSS Grid</span>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="footer-col contact-col">
+                <h4 class="footer-title">Contact</h4>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Silicon Valley HQ, Palo Alto, CA</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>contact@nexustech.io</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+1 (555) 019-2834</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer Bottom Bar -->
+        <div class="footer-bottom">
+            <div class="container footer-bottom-flex">
+                <p>&copy; 2026 NexusTech Blog. All rights reserved. Created for tech enthusiasts and builders.</p>
+                <div class="bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Full Article Reader Modal -->
+    <div class="modal-backdrop" id="articleModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-container">
+            <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-body" id="modalBody">
+                <!-- Populated dynamically via script.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Main JavaScript Logic -->
+    <script src="script.js"></script>
+</body>
+</html>
